@@ -9,8 +9,8 @@ module.exports = {
     'eslint:recommended', // Use the recommened rules from eslint
     'plugin:@typescript-eslint/recommended', // Use the recommended rules from @typescript-eslint/eslint-plugin
     'plugin:react/recommended', // Use the recommended rules from eslint-plugin-react
-    'prettier/@typescript-eslint', // Use eslint-config-prettier to disable ESLint formatting rules from @typescript-eslint/eslint-plugin that would conflict with Prettier
-    'prettier/react', // Use eslint-config-prettier to disable ESLint formatting rules from eslint-plugin-react that would conflict with with Prettier
+    // 'prettier/@typescript-eslint', // Use eslint-config-prettier to disable ESLint formatting rules from @typescript-eslint/eslint-plugin that would conflict with Prettier
+    // 'prettier/react', // Use eslint-config-prettier to disable ESLint formatting rules from eslint-plugin-react that would conflict with with Prettier
     'plugin:prettier/recommended', // Enables eslint-plugin-prettier to display Prettier errors as ESLint errorsq
   ],
   parser: '@typescript-eslint/parser', // Specifies the ESLint parser
@@ -30,5 +30,11 @@ module.exports = {
     react: {
       version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
     },
+  },
+  rules: {
+    // suppress errors for missing 'import React' in files
+    'react/react-in-jsx-scope': 'off',
+    // allow jsx syntax in js files (for next.js project)
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }], //should add ".ts" if typescript project
   },
 };
