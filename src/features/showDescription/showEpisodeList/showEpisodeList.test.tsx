@@ -1,4 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 
 import ShowEpisodeList from './showEpisodeList';
 
@@ -62,8 +64,11 @@ const testEpisodes = [
 ];
 
 describe('<ShowEpisodeList />', () => {
+  let container: HTMLElement;
+
   beforeEach(() => {
-    render(<ShowEpisodeList episodes={testEpisodes} />);
+    const component = render(<ShowEpisodeList episodes={testEpisodes} />);
+    container = component.container;
   });
 
   it('should initially display series `1` episodes', () => {
@@ -72,9 +77,19 @@ describe('<ShowEpisodeList />', () => {
     expect(screen.queryByText(/the stayover/i)).toBeNull();
     expect(screen.queryByText(/painbow/i)).toBeNull();
   });
-  it('should be able to toggle episodes for seasons', () => {});
-});
+  it('should be able to toggle episodes for seasons', async () => {
+    const button = screen.getByLabelText(/season 2/i);
+    userEvent.click(button);
 
-// thing.reduce((prev, initial) => {
-//     return prev > initial.number ? prev : initial.number
-// }, 0);
+    await waitFor(() => {
+      screen.queryByText(/the stayover/i);
+      screen.queryByText(/painbow/i);
+      expect(screen.queryByText(/escape from monster island/i)).toBeNull();
+      expect(screen.queryByText(/princess buttercup/i)).toBeNull();
+    });
+  });
+
+  it('should be accessible', async () => {
+    expect(await axe(container)).toHaveNoViolations();
+  });
+});
