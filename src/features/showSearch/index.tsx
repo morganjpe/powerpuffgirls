@@ -5,7 +5,7 @@ import ShowsList from './showsList/showsList';
 
 import { searchShows } from './api';
 
-const Shows = () => {
+const Shows = (): JSX.Element => {
   const [search, setSearch] = React.useState('');
   const [shows, setShows] = React.useState<ShowList>([]);
 
