@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import SearchBar from '.';
+import SearchBar from './searchbar';
 
 describe('<SearchBar /> component', () => {
   let container: HTMLElement;
