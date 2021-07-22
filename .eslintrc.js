@@ -12,6 +12,7 @@ module.exports = {
     // 'prettier/@typescript-eslint', // Use eslint-config-prettier to disable ESLint formatting rules from @typescript-eslint/eslint-plugin that would conflict with Prettier
     // 'prettier/react', // Use eslint-config-prettier to disable ESLint formatting rules from eslint-plugin-react that would conflict with with Prettier
     'plugin:prettier/recommended', // Enables eslint-plugin-prettier to display Prettier errors as ESLint errorsq
+    'plugin:jsx-a11y/strict',
   ],
   parser: '@typescript-eslint/parser', // Specifies the ESLint parser
   parserOptions: {
@@ -25,6 +26,7 @@ module.exports = {
     '@typescript-eslint', // Allows for manually setting @typescript-eslint/* rules
     'react', // Allows for manually setting react/* rules
     'prettier',
+    'jsx-a11y',
   ],
   settings: {
     react: {
@@ -35,6 +37,9 @@ module.exports = {
     // suppress errors for missing 'import React' in files
     'react/react-in-jsx-scope': 'off',
     // allow jsx syntax in js files (for next.js project)
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }], //should add ".ts" if typescript project
+    'react/jsx-filename-extension': [
+      1,
+      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+    ], //should add ".ts" if typescript project
   },
 };
