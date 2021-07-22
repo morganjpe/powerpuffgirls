@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import SearchBar from './searchBar';
+import SearchBar from '.';
 
 describe('<SearchBar /> component', () => {
   let container: HTMLElement;
@@ -15,7 +15,7 @@ describe('<SearchBar /> component', () => {
     expect(input).toHaveAttribute('type', 'text');
   });
 
-  it('should render an accessible input and label', async () => {
+  it('should be accessible', async () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 });
