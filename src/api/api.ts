@@ -6,16 +6,16 @@ const hypenateQuery = (query: string) =>
 
 export const showsApi = createApi({
   reducerPath: 'shows',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://api.tvmaze.com/shows/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://api.tvmaze.com/' }),
   endpoints: (builder) => ({
     getShows: builder.query<ShowList, string>({
-      query: (query) => `?q=${hypenateQuery(query)}`,
+      query: (query) => `search/?q=${hypenateQuery(query)}`,
     }),
-    getShowById: builder.query<Show, string>({
-      query: (query) => query,
+    getShowById: builder.query<Show, number>({
+      query: (query) => `shows/${query}`,
     }),
-    getEpisodesById: builder.query<EpisodeList, string>({
-      query: (query) => `${query}/episodes`,
+    getEpisodesById: builder.query<EpisodeList, number>({
+      query: (query) => `shows/${query}/episodes`,
     }),
   }),
 });

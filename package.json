@@ -53,6 +53,10 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "jest-axe": "^5.0.1",
+    "msw": "^0.32.2",
     "prettier": "^2.3.2"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
