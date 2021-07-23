@@ -6,7 +6,7 @@ interface ShowImage {
 export interface Show {
   id: number;
   name: string;
-  image: ShowImage;
+  image: ShowImage | null;
   summary: string;
 }
 

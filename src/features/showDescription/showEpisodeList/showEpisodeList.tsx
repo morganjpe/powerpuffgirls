@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { EpisodeList } from '../showDescription.types';
+import { EpisodeList } from '../../../api';
 import { ShowEpisodeCard } from '../showEpisodeCard';
 
 interface ShowEpisodeList {
@@ -29,11 +29,17 @@ const ShowEpisodeList = ({ episodes }: ShowEpisodeList): JSX.Element => {
         </label>
       ))}
       <ul>
-        {intial.map(({ name, image: { medium } }, index) => (
-          <li key={`${name}_${Date.now()}`}>
-            <ShowEpisodeCard image={medium} title={name} number={index + 1} />
-          </li>
-        ))}
+        {intial.map(({ name, image }, index) => {
+          return (
+            <li key={`${name}_${Date.now()}`}>
+              <ShowEpisodeCard
+                image={image?.medium ? image.medium : null}
+                title={name}
+                number={index + 1}
+              />
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

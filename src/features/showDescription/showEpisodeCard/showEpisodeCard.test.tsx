@@ -22,4 +22,9 @@ describe('<ShowEpisodeCard /> component', () => {
     screen.getByText(/episode name/i);
     screen.getByText(/10/i);
   });
+
+  it('should render a placeholder if no image', () => {
+    render(<ShowEpisodeCard title="episode name" image={null} number={10} />);
+    screen.getByText(/no image thumbnail/i);
+  });
 });

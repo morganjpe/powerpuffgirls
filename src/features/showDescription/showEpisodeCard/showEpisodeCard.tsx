@@ -1,6 +1,6 @@
 interface ShowEpisodeCardProps {
   title: string;
-  image: string;
+  image: string | null;
   number: number;
 }
 
@@ -11,7 +11,7 @@ const ShowEpisodeCard = ({
 }: ShowEpisodeCardProps): JSX.Element => {
   return (
     <div>
-      <img src={image} alt={title} />
+      {image ? <img src={image} alt={title} /> : <div>no image thumbnail</div>}
       <div>
         <h4>
           {title} <span>{number}</span>

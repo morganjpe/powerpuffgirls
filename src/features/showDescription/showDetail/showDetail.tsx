@@ -1,7 +1,7 @@
 interface ShowDetailProps {
   title: string;
   description: string;
-  image: string;
+  image: string | null;
 }
 
 const ShowDetail = ({
@@ -12,8 +12,8 @@ const ShowDetail = ({
   return (
     <div>
       <h2>{title}</h2>
-      <p>{description}</p>
-      <img src={image} alt={title} />
+      <p dangerouslySetInnerHTML={{ __html: description }} />
+      {image ? <img src={image} alt={title} /> : <div>no image thumbnail</div>}
     </div>
   );
 };

@@ -1,6 +1,19 @@
 import { render, screen } from '@testing-library/react';
 import ShowDetail from './showDetail';
 
+function isHTML(str: string | null) {
+  if (str === null) return false;
+
+  const a = document.createElement('div');
+  a.innerHTML = str;
+
+  for (let c = a.childNodes, i = c.length; i--; ) {
+    if (c[i].nodeType === 1) return true;
+  }
+
+  return false;
+}
+
 const detailProps = {
   title: 'show title',
   description:
@@ -20,5 +33,18 @@ describe('<ShowDetail /> Component', () => {
     screen.getByText(
       /the superhero children have grown and are now disillusioned/i
     );
+  });
+
+  it('should render a placeholder if no image', () => {
+    render(<ShowDetail {...detailProps} image={null} />);
+    screen.getByText(/no image thumbnail/i);
+  });
+
+  it('should not contain any html', () => {
+    render(<ShowDetail {...detailProps} />);
+    const text = screen.getByText(
+      /the superhero children have grown and are now disillusioned/i
+    );
+    expect(isHTML(text.textContent)).toBeFalsy();
   });
 });
