@@ -1,7 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
 
-export default configureStore({
+import { showsApi } from '../api';
+
+const store = configureStore({
   reducer: {
-    // shows: () => '',
+    [showsApi.reducerPath]: showsApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(showsApi.middleware),
 });
+
+export default store;
+
+setupListeners(store.dispatch);
