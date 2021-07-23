@@ -1,7 +1,7 @@
 import { useGetShowByIdQuery, useGetEpisodesByIdQuery } from '../../api';
 
 // components
-import { ShowDetail } from './showDetail';
+import { ShowDetail } from '../showDetail';
 import { ShowEpisodeList } from './showEpisodeList';
 
 interface ShowDescriptionProps {
