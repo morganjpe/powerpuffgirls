@@ -6,7 +6,14 @@ describe('<SearchBar /> component', () => {
   let container: HTMLElement;
 
   beforeEach(() => {
-    const component = render(<SearchBar />);
+    const component = render(
+      <SearchBar
+        search={''}
+        handleUserInput={() => {
+          console.log('set');
+        }}
+      />
+    );
     container = component.container;
   });
 

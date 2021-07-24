@@ -2,15 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
-// import { store } from './app/store';
-// import { Provider } from 'react-redux';
+import Layout from './app/layout';
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
-    <App />
-    {/* </Provider> */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossOrigin="true"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <Layout>
+      <App />
+    </Layout>
   </React.StrictMode>,
   document.getElementById('root')
 );

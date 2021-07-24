@@ -18,5 +18,5 @@
     "jsx": "react-jsx"
   },
   "include": ["src"],
-  "files": ["twin.d.ts"]
+  "files": ["src/twin.d.ts"]
 }

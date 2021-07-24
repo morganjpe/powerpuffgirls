@@ -1,12 +1,12 @@
 interface ShowsCardProps {
   title: string;
-  image: string;
+  image: string | null;
 }
 
 const ShowsCard = ({ title, image }: ShowsCardProps): JSX.Element => {
   return (
     <div>
-      <img src={image} alt={title} />
+      {image ? <img src={image} alt={title} /> : <div>no image thumbnail</div>}
       <h4>{title}</h4>
     </div>
   );

@@ -1,34 +1,40 @@
+/* eslint jsx-a11y/label-has-for: 0 */
+
+import tw, { styled } from 'twin.macro';
+import { DebounceInput } from 'react-debounce-input';
+
 interface SearchbarProps {
-  captureInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  searchForShows: () => Promise<void>;
+  handleUserInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
   search: string;
 }
 
 const Searchbar = ({
-  captureInput,
-  searchForShows,
+  handleUserInput,
   search,
 }: SearchbarProps): JSX.Element => {
+  console.log(search);
+
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        searchForShows();
       }}
     >
       <label htmlFor="search">
         search
-        <input
-          onChange={captureInput}
+        <DebounceInput
+          onChange={(e) => handleUserInput(e)}
           id="search"
           name="search"
-          type="text"
           value={search}
+          minLength={2}
+          debounceTimeout={500}
         />
       </label>
-      <button type="submit">Search for films</button>
     </form>
   );
 };
+
+export const Container = styled.form``;
 
 export default Searchbar;

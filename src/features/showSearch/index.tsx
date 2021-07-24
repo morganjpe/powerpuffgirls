@@ -1,32 +1,24 @@
 import * as React from 'react';
-import type { ShowList } from './shows.types';
 import Searchbar from './searchbar/searchbar';
 import ShowsList from './showsList/showsList';
 
-import { searchShows } from './api';
+// state
+import { useGetShowsQuery } from '../../api';
 
 const Shows = (): JSX.Element => {
   const [search, setSearch] = React.useState('');
-  const [shows, setShows] = React.useState<ShowList>([]);
+  const { data: shows, error, isLoading } = useGetShowsQuery(search);
 
-  const captureInput = (e: React.ChangeEvent<HTMLInputElement>) =>
+  const handleUserInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
-
-  const searchForShows = async () => {
-    const shows = await searchShows(search);
-    if (shows) {
-      setShows(shows);
-    }
   };
+
+  if (error) return <div>there has been an error</div>;
 
   return (
     <div>
-      <Searchbar
-        search={search}
-        captureInput={captureInput}
-        searchForShows={searchForShows}
-      />
-      <ShowsList shows={shows} hasSearched={false} />
+      <Searchbar search={search} handleUserInput={handleUserInput} />
+      {isLoading ? 'loading ...' : <ShowsList shows={shows} />}
     </div>
   );
 };

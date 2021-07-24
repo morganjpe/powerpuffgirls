@@ -1,32 +1,28 @@
 import { ShowsCard } from '../showsCard';
-import type { ShowList } from '../shows.types';
+import { ShowList } from '../../../api';
 
 interface ShowsListProps {
-  hasSearched: boolean;
-  shows: ShowList;
+  shows: ShowList | undefined;
 }
 
-const ShowsList = ({ hasSearched, shows }: ShowsListProps): JSX.Element => {
-  if (shows.length) {
+const ShowsList = ({ shows }: ShowsListProps): JSX.Element => {
+  if (shows && shows.length) {
     return (
       <ul>
-        {shows.map(
-          ({
-            show: {
-              name,
-              image: { medium },
-            },
-          }) => (
-            <li key={name}>
-              <ShowsCard title={name} image={medium} />
-            </li>
-          )
-        )}
+        {shows.map(({ show: { name, image, id } }) => (
+          <li key={id}>
+            {console.log(image?.medium, '??')}
+            <ShowsCard
+              title={name}
+              image={image?.medium ? image.medium : null}
+            />
+          </li>
+        ))}
       </ul>
     );
   }
 
-  if (hasSearched && !shows.length) {
+  if (!shows?.length) {
     return <div>Could not find shows</div>;
   }
 

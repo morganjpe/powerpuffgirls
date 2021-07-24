@@ -9,7 +9,7 @@ export const showsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'https://api.tvmaze.com/' }),
   endpoints: (builder) => ({
     getShows: builder.query<ShowList, string>({
-      query: (query) => `search/?q=${hypenateQuery(query)}`,
+      query: (query) => `search/shows?q=${hypenateQuery(query)}`,
     }),
     getShowById: builder.query<Show, number>({
       query: (query) => `shows/${query}`,
