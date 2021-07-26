@@ -1,4 +1,6 @@
 import * as React from 'react';
+import styled from 'styled-components';
+
 import Searchbar from './searchbar/searchbar';
 import ShowsList from './showsList/showsList';
 
@@ -17,10 +19,26 @@ const Shows = (): JSX.Element => {
 
   return (
     <div>
-      <Searchbar search={search} handleUserInput={handleUserInput} />
-      {isLoading ? 'loading ...' : <ShowsList shows={shows} />}
+      <SearchContainer>
+        <Searchbar search={search} handleUserInput={handleUserInput} />
+      </SearchContainer>
+
+      <div>{isLoading ? 'loading ...' : <ShowsList shows={shows} />}</div>
     </div>
   );
 };
+
+const SearchContainer = styled.div`
+  display: grid;
+  grid-template-columns: 15px 1fr 15px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+
+  > form {
+    grid-column: 2/3;
+  }
+`;
 
 export default Shows;

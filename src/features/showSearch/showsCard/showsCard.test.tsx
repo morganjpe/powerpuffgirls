@@ -7,7 +7,10 @@ describe('<ShowsCard /> component', () => {
   it('should display the show name', () => {
     render(<ShowsCard title="Show Title" image={IMAGE_PATH} />);
     screen.getByText(/show title/i);
-    const image = screen.getByAltText(/show title/i);
-    expect(image).toHaveAttribute('src', IMAGE_PATH);
+    const image = screen.getAllByAltText(/show title/i);
+
+    image.forEach((img) => {
+      expect(img).toHaveAttribute('src', IMAGE_PATH);
+    });
   });
 });

@@ -1,6 +1,5 @@
 /* eslint jsx-a11y/label-has-for: 0 */
-
-import tw, { styled } from 'twin.macro';
+import styled from 'styled-components';
 import { DebounceInput } from 'react-debounce-input';
 
 interface SearchbarProps {
@@ -12,16 +11,10 @@ const Searchbar = ({
   handleUserInput,
   search,
 }: SearchbarProps): JSX.Element => {
-  console.log(search);
-
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-      }}
-    >
+    <Form onSubmit={(e) => e.preventDefault()}>
       <label htmlFor="search">
-        search
+        <span>search</span>
         <DebounceInput
           onChange={(e) => handleUserInput(e)}
           id="search"
@@ -29,12 +22,35 @@ const Searchbar = ({
           value={search}
           minLength={2}
           debounceTimeout={500}
+          placeholder="search..."
         />
       </label>
-    </form>
+    </Form>
   );
 };
 
-export const Container = styled.form``;
+const Form = styled.form`
+  label {
+    display: block;
+
+    span {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+
+    input {
+      padding: 1rem;
+      width: calc(100% - 2rem);
+      display: block;
+      border: none;
+      border-radius: 4px;
+    }
+  }
+`;
 
 export default Searchbar;

@@ -1,21 +1,32 @@
 import { createGlobalStyle } from 'styled-components';
-import { GlobalStyles as BaseStyles, theme } from 'twin.macro';
+import { Normalize } from 'styled-normalize';
 
 const CustomStyles = createGlobalStyle`
+    html {
+        --color-red: #E50914;
+        --color-black: black;
+        --color-white: white;
+
+        --font-roboto: 'Roboto', sans-serif;
+        --font-bebas: 'Bebas Neue', cursive;
+    }
+
     body {
-        background-color: ${theme`colors.black`};
-        color: ${theme`colors.white`};
-        font-family: 'Roboto', sans-serif;
+        font-family: var(--font-roboto);
+        background: var(--color-black);
+        color: var(--color-white);   
     }
+
     h1,h2,h3,h4,h5,h6 {
-        font-family: 'Bebas Neue', cursive;
+        font-family: var(--font-bebas);
     }
+
 `;
 
 const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
   return (
     <>
-      <BaseStyles />
+      <Normalize />
       <CustomStyles />
       {children}
     </>

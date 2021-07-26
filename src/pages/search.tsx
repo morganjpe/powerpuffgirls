@@ -1,29 +1,58 @@
-import tw, { styled, theme, css } from 'twin.macro';
+import styled from 'styled-components';
 import ShowSearch from '../features/showSearch';
 
-const Search = (): JSX.Element => (
-  <Search.Container>
-    <Search.Inner>
-      <Search.Title
-        css={css({ textShadow: `0px 2px 8px ${theme`colors.red.900`}` })}
-      >
-        SCREWFLIX
-      </Search.Title>
-      <ShowSearch />
-    </Search.Inner>
-  </Search.Container>
-);
+const Search = (): JSX.Element => {
+  return (
+    <Container>
+      <Inner>
+        <TitleContainer>
+          <div>
+            <Title>SCREWFLIX</Title>
+          </div>
+        </TitleContainer>
+        <ShowSearch />
+      </Inner>
+    </Container>
+  );
+};
 
-Search.Container = styled.main`
-  ${tw`h-screen container mx-auto flex flex-wrap justify-center items-center`}
+const Container = styled.main`
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template:
+    'top' 1fr
+    'middle' 3fr;
 `;
 
-Search.Inner = styled.section`
-  ${tw`w-full`}
+const Inner = styled.section`
+  grid-area: middle;
 `;
 
-Search.Title = styled.h1`
-  ${tw`text-red-600 text-4xl md:text-6xl lg:text-8xl mb-8 text-center`}
+const TitleContainer = styled.div`
+  display: grid;
+
+  grid-template-columns: 20px 1fr 20px;
+
+  div {
+    grid-column: 2 / 3;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+`;
+
+const Title = styled.h1`
+  color: var(--color-red);
+  margin: 0;
+  font-size: 3em;
+  text-align: center;
+  padding: 2rem 0;
+
+  @media (min-width: 768px) {
+    font-size: 5em;
+  }
 `;
 
 export default Search;
