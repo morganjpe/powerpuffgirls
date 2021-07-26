@@ -23,7 +23,13 @@ const Shows = (): JSX.Element => {
         <Searchbar search={search} handleUserInput={handleUserInput} />
       </SearchContainer>
 
-      <div>{isLoading ? 'loading ...' : <ShowsList shows={shows} />}</div>
+      <div>
+        {isLoading ? (
+          'loading ...'
+        ) : (
+          <ShowsList search={search} shows={shows} />
+        )}
+      </div>
     </div>
   );
 };

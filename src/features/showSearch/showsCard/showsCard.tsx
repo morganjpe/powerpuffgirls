@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Thumbnail from '../../../app/thumbnail';
 interface ShowsCardProps {
   title: string;
   image: string | null;
@@ -14,7 +15,7 @@ const ShowsCard = ({ title, image }: ShowsCardProps): JSX.Element => {
             <img className="main" tw="rounded" src={image} alt={title} />
           </>
         ) : (
-          <Thumbail>no image thumbnail</Thumbail>
+          <Thumbnail>no image thumbnail</Thumbnail>
         )}
       </Inner>
       <h4>{title}</h4>
@@ -40,11 +41,6 @@ const ShowsCardImg = styled.img`
   filter: blur(15px);
   opacity: 0.4;
   z-index: -1;
-`;
-
-const Thumbail = styled.div`
-  height: calc(100vw * 1.4);
-  background: gray;
 `;
 
 export default ShowsCard;

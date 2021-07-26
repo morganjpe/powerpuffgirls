@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import styled from 'styled-components';
 
 const Thumbnail = ({
@@ -17,6 +17,10 @@ const Thumbnail = ({
     });
   }, []);
 
+  useLayoutEffect(() => {
+    setThumbnail(ref.current ? ref.current.clientWidth : 0);
+  }, []);
+
   return (
     <Thumbail width={thumbnail} ref={ref}>
       {children}
@@ -25,8 +29,12 @@ const Thumbnail = ({
 };
 
 const Thumbail = styled.div<{ width: number }>`
-  height: calc(100vw * 1.4);
-  background: gray;
+  height: calc(${({ width }) => width}px * 1.4);
+  background: var(--color-gray);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export default Thumbnail;

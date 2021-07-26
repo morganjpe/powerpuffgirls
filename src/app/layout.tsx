@@ -6,6 +6,7 @@ const CustomStyles = createGlobalStyle`
         --color-red: #E50914;
         --color-black: black;
         --color-white: white;
+        --color-gray: #221f1f;
 
         --font-roboto: 'Roboto', sans-serif;
         --font-bebas: 'Bebas Neue', cursive;
