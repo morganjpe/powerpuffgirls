@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ShowsList /> component should display a list of show cards 1`] = `
+"<div class=\\"sc-hKFxyN cuWGjR\\">
+  <div>
+    <ul>
+      <li>
+        <div><a href=\\"/show/49892\\">
+            <div class=\\"sc-gtsrHT jMaFal\\"><img src=\\"https://static.tvmaze.com/uploads/images/medium_portrait/307/768002.jpg\\" alt=\\"The Powerpuff Girls\\" class=\\"sc-dlnjwi ejJcht\\"><img class=\\"main\\" tw=\\"rounded\\" src=\\"https://static.tvmaze.com/uploads/images/medium_portrait/307/768002.jpg\\" alt=\\"The Powerpuff Girls\\"></div>
+            <h4>The Powerpuff Girls</h4>
+          </a></div>
+      </li>
+      <li>
+        <div><a href=\\"/show/6771\\">
+            <div class=\\"sc-gtsrHT jMaFal\\"><img src=\\"https://static.tvmaze.com/uploads/images/medium_portrait/60/151357.jpg\\" alt=\\"The Powerpuff Girls\\" class=\\"sc-dlnjwi ejJcht\\"><img class=\\"main\\" tw=\\"rounded\\" src=\\"https://static.tvmaze.com/uploads/images/medium_portrait/60/151357.jpg\\" alt=\\"The Powerpuff Girls\\"></div>
+            <h4>The Powerpuff Girls</h4>
+          </a></div>
+      </li>
+      <li>
+        <div><a href=\\"/show/1955\\">
+            <div class=\\"sc-gtsrHT jMaFal\\"><img src=\\"https://static.tvmaze.com/uploads/images/medium_portrait/11/27896.jpg\\" alt=\\"The Powerpuff Girls\\" class=\\"sc-dlnjwi ejJcht\\"><img class=\\"main\\" tw=\\"rounded\\" src=\\"https://static.tvmaze.com/uploads/images/medium_portrait/11/27896.jpg\\" alt=\\"The Powerpuff Girls\\"></div>
+            <h4>The Powerpuff Girls</h4>
+          </a></div>
+      </li>
+      <li>
+        <div><a href=\\"/show/26437\\">
+            <div class=\\"sc-gtsrHT jMaFal\\"><img src=\\"https://static.tvmaze.com/uploads/images/medium_portrait/104/260281.jpg\\" alt=\\"Demashitaa! Powerpuff Girls Z\\" class=\\"sc-dlnjwi ejJcht\\"><img class=\\"main\\" tw=\\"rounded\\" src=\\"https://static.tvmaze.com/uploads/images/medium_portrait/104/260281.jpg\\" alt=\\"Demashitaa! Powerpuff Girls Z\\"></div>
+            <h4>Demashitaa! Powerpuff Girls Z</h4>
+          </a></div>
+      </li>
+    </ul>
+  </div>
+</div>"
+`;
+
+exports[`<ShowsList /> component should display no shows if no shows have been found 1`] = `
+"<div class=\\"sc-hKFxyN cuWGjR\\">
+  <div>Could not find shows</div>
+</div>"
+`;

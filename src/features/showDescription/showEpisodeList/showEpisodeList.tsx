@@ -29,7 +29,7 @@ const ShowEpisodeList = ({
       <div className="inner">
         <div className="episodes">
           {[...Array(seasons)].map((_, index) => (
-            <>
+            <div key={index}>
               <input
                 id={`${index}_season`}
                 type="radio"
@@ -39,13 +39,13 @@ const ShowEpisodeList = ({
               <label htmlFor={`${index}_season`} key={index}>
                 Season {index + 1}
               </label>
-            </>
+            </div>
           ))}
         </div>
         <ul>
           {intial.map(({ name, image, id }, index) => {
             return (
-              <li key={id}>
+              <li key={`${id}_${index}`}>
                 <Link to={`/episode/${showId}`}>
                   <ShowEpisodeCard
                     image={image?.medium ? image.medium : null}

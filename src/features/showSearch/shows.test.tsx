@@ -1,14 +1,16 @@
 import { Provider } from 'react-redux';
 import store from '../../app/store';
 
-import { screen, render, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
+import renderWithBrowser from '../../testutils';
 
 import Shows from './index';
 
 describe('<Shows /> Component', () => {
   it('Should search for shows', async () => {
-    render(
+    renderWithBrowser(
       <Provider store={store}>
         <Shows />
       </Provider>

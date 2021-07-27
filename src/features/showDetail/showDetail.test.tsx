@@ -1,5 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import ShowDetail from './showDetail';
+import renderWithBrowser from '../../testutils';
+import pretty from 'pretty';
 
 function isHTML(str: string | null) {
   if (str === null) return false;
@@ -24,7 +26,7 @@ const detailProps = {
 
 describe('<ShowDetail /> Component', () => {
   it('should display detail related to the show', () => {
-    render(<ShowDetail {...detailProps} />);
+    const { container } = renderWithBrowser(<ShowDetail {...detailProps} />);
 
     const image = screen.getByAltText(/show title/i);
     expect(image).toHaveAttribute('src', detailProps.image);
@@ -33,18 +35,24 @@ describe('<ShowDetail /> Component', () => {
     screen.getByText(
       /the superhero children have grown and are now disillusioned/i
     );
+
+    expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 
   it('should render a placeholder if no image', () => {
-    render(<ShowDetail {...detailProps} image={null} />);
+    const { container } = renderWithBrowser(
+      <ShowDetail {...detailProps} image={null} />
+    );
     screen.getByText(/no image thumbnail/i);
+    expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 
   it('should not contain any html', () => {
-    render(<ShowDetail {...detailProps} />);
+    const { container } = renderWithBrowser(<ShowDetail {...detailProps} />);
     const text = screen.getByText(
       /the superhero children have grown and are now disillusioned/i
     );
     expect(isHTML(text.textContent)).toBeFalsy();
+    expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 });

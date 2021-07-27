@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ShowDetail /> Component should display detail related to the show 1`] = `
+"<article class=\\"sc-bdnxRM fiSZzA\\">
+  <div class=\\"sc-dlnjwi cnlGHY\\">
+    <div class=\\"sc-gtsrHT dztvPj\\"></div>
+    <div>
+      <div class=\\"description\\"><span class=\\"breadcrumbs\\"><a href=\\"/\\">Home</a> </span>
+        <h2>show title</h2>
+        <div class=\\"content\\">
+          <p>
+          <p>The superhero children have grown and are now disillusioned twentysomethings who resent having lost their childhood to crime fighting. Will they agree to reunite now that the world needs them more than ever?</p>
+          </p>
+        </div>
+      </div>
+      <div class=\\"image\\"><img src=\\"https://static.tvmaze.com/uploads/images/medium_portrait/307/768002.jpg\\" alt=\\"show title\\"></div>
+    </div>
+  </div>
+</article>"
+`;
+
+exports[`<ShowDetail /> Component should not contain any html 1`] = `
+"<article class=\\"sc-bdnxRM fiSZzA\\">
+  <div class=\\"sc-dlnjwi cnlGHY\\">
+    <div class=\\"sc-gtsrHT dztvPj\\"></div>
+    <div>
+      <div class=\\"description\\"><span class=\\"breadcrumbs\\"><a href=\\"/\\">Home</a> </span>
+        <h2>show title</h2>
+        <div class=\\"content\\">
+          <p>
+          <p>The superhero children have grown and are now disillusioned twentysomethings who resent having lost their childhood to crime fighting. Will they agree to reunite now that the world needs them more than ever?</p>
+          </p>
+        </div>
+      </div>
+      <div class=\\"image\\"><img src=\\"https://static.tvmaze.com/uploads/images/medium_portrait/307/768002.jpg\\" alt=\\"show title\\"></div>
+    </div>
+  </div>
+</article>"
+`;
+
+exports[`<ShowDetail /> Component should render a placeholder if no image 1`] = `
+"<article class=\\"sc-bdnxRM fiSZzA\\">
+  <div class=\\"sc-dlnjwi cnlGHY\\">
+    <div class=\\"sc-gtsrHT gUNpAU\\"></div>
+    <div>
+      <div class=\\"description\\"><span class=\\"breadcrumbs\\"><a href=\\"/\\">Home</a> </span>
+        <h2>show title</h2>
+        <div class=\\"content\\">
+          <p>
+          <p>The superhero children have grown and are now disillusioned twentysomethings who resent having lost their childhood to crime fighting. Will they agree to reunite now that the world needs them more than ever?</p>
+          </p>
+        </div>
+      </div>
+      <div class=\\"image\\">
+        <div>no image thumbnail</div>
+      </div>
+    </div>
+  </div>
+</article>"
+`;

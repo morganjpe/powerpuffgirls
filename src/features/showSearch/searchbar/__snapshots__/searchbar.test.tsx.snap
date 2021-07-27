@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchBar /> component should have a label and input 1`] = `
+"<form class=\\"sc-bdnxRM gTmBws\\"><label for=\\"search\\"><span class=\\"hidden\\">search</span>
+    <div class=\\"search-container\\"><input id=\\"search\\" name=\\"search\\" placeholder=\\"search...\\" type=\\"text\\" value=\\"\\"></div>
+  </label></form>"
+`;

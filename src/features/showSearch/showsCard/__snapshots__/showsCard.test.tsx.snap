@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ShowsCard /> component should display the show name 1`] = `
+"<div><a href=\\"/show/9999\\">
+    <div class=\\"sc-gtsrHT jMaFal\\"><img src=\\"https://www.screwfix.com/images/CAT145B/assets/gfx/145b_summer2_makita_twin_hw_lg.png\\" alt=\\"Show Title\\" class=\\"sc-dlnjwi ejJcht\\"><img class=\\"main\\" tw=\\"rounded\\" src=\\"https://www.screwfix.com/images/CAT145B/assets/gfx/145b_summer2_makita_twin_hw_lg.png\\" alt=\\"Show Title\\"></div>
+    <h4>Show Title</h4>
+  </a></div>"
+`;

@@ -17,6 +17,7 @@
     "@types/styled-components": "^5.1.11",
     "axios": "^0.21.1",
     "eslint-config-react-app": "^6.0.0",
+    "pretty": "^2.0.0",
     "react": "^17.0.2",
     "react-debounce-input": "^3.2.4",
     "react-dom": "^17.0.2",
@@ -54,6 +55,7 @@
   },
   "devDependencies": {
     "@types/jest-axe": "^3.5.2",
+    "@types/pretty": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
     "@typescript-eslint/parser": "^4.28.4",
     "ava": "^3.15.0",

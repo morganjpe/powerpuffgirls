@@ -1,10 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import ShowEpisodeCard from './showEpisodeCard';
 import { BrowserRouter as Router } from 'react-router-dom';
+import pretty from 'pretty';
 
 describe('<ShowEpisodeCard /> component', () => {
   it('should display a card with image, title and episode number', () => {
-    render(
+    const { container } = render(
       <Router>
         <ShowEpisodeCard
           title="episode name"
@@ -24,14 +25,17 @@ describe('<ShowEpisodeCard /> component', () => {
 
     screen.getByText(/episode name/i);
     screen.getByText(/10/i);
+
+    expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 
   it('should render a placeholder if no image', () => {
-    render(
+    const { container } = render(
       <Router>
         <ShowEpisodeCard title="episode name" image={null} number={10} />
       </Router>
     );
     screen.getByText(/no image thumbnail/i);
+    expect(pretty(container.innerHTML)).toMatchSnapshot();
   });
 });

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ShowEpisodeCard /> component should display a card with image, title and episode number 1`] = `
+"<div class=\\"sc-gtsrHT bVWcXv\\"><img src=\\"https://static.tvmaze.com/uploads/images/medium_portrait/307/768002.jpg\\" alt=\\"episode name\\">
+  <div>
+    <h4>episode name <span>10</span></h4>
+  </div>
+</div>"
+`;
+
+exports[`<ShowEpisodeCard /> component should render a placeholder if no image 1`] = `
+"<div class=\\"sc-gtsrHT bVWcXv\\">
+  <div width=\\"0\\" class=\\"sc-bdnxRM hKWRKm\\">no image thumbnail</div>
+  <div>
+    <h4>episode name <span>10</span></h4>
+  </div>
+</div>"
+`;
