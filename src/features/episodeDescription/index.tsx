@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import styled from 'styled-components';
 import { useGetEpisodesByIdQuery } from '../../api';
 
 // components
@@ -22,7 +23,6 @@ const reducer = (state: number, action: ReducerAction): number => {
 interface EpisodeDescriptionProps {
   number: number;
   showId: number;
-  log: boolean;
 }
 
 const EpisodeDescription = ({
@@ -36,30 +36,78 @@ const EpisodeDescription = ({
     const { name, summary, image } = data[current];
 
     return (
-      <div>
-        <ShowDetail
-          title={name}
-          description={summary}
-          image={image?.medium ? image?.medium : null}
-        />
-        <div>
-          {current < data.length - 1 && (
-            <button onClick={() => dispatch({ type: 'increment' })}>
-              next episode
-            </button>
-          )}
-
-          {current && (
-            <button onClick={() => dispatch({ type: 'decrement' })}>
-              previous episode
-            </button>
-          )}
+      <EpisodeDescriptionContainer>
+        <div className="top">
+          <ShowDetail
+            title={name}
+            description={summary}
+            image={image?.medium ? image?.medium : null}
+          />
         </div>
-      </div>
+
+        <div className="bottom">
+          <div>
+            {current > 0 && (
+              <button onClick={() => dispatch({ type: 'decrement' })}>
+                previous episode
+              </button>
+            )}
+            {current < data.length - 1 && (
+              <button onClick={() => dispatch({ type: 'increment' })}>
+                next episode
+              </button>
+            )}
+          </div>
+        </div>
+      </EpisodeDescriptionContainer>
     );
   }
 
   return <div />;
 };
+
+const EpisodeDescriptionContainer = styled.div`
+  display: grid;
+  height: 100vh;
+  grid-template: 'top' 1fr 'bottom' 2fr;
+
+  @media (min-width: 768px) {
+    grid-template: 'top' 2fr 'bottom' 1fr;
+  }
+
+  .top {
+    grid-area: top;
+  }
+
+  .bottom {
+    grid-area: bottom;
+    display: grid;
+    grid-template-columns: 20px 1fr 1fr 20px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr minmax(1200px, 1fr) 1fr;
+    }
+
+    > div {
+      grid-column: 2/4;
+
+      button {
+        padding: 1rem 1.5rem;
+        border-radius: 5px;
+        background: var(--color-gray);
+        color: var(--color-white);
+        border: none;
+        text-transform: capitalize;
+        cursor: pointer;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+
+        :hover {
+          background: var(--color-red);
+        }
+      }
+    }
+  }
+`;
 
 export default EpisodeDescription;

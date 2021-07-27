@@ -13,7 +13,7 @@ describe('<EpisodeDescription /> Component', () => {
   it('should be able to navigate between episode pages', async () => {
     render(
       <Provider store={store}>
-        <EpisodeDescription log={false} number={0} showId={6771} />
+        <EpisodeDescription number={0} showId={6771} />
       </Provider>
     );
     await waitFor(() => {
