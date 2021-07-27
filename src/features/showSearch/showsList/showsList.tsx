@@ -37,7 +37,9 @@ const ShowsList = ({
   if (!shows?.length && search.length && !isLoading) {
     return (
       <ShowsListContainer>
-        <div>Could not find shows</div>
+        <div style={{ padding: '1rem 0', textAlign: 'center' }}>
+          Could not find shows
+        </div>
       </ShowsListContainer>
     );
   }

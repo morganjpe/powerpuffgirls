@@ -28,9 +28,7 @@ const Shows = (): JSX.Element => {
       </SearchContainer>
 
       <div>
-        {isLoading ? (
-          'loading ...'
-        ) : (
+        {!isLoading && (
           <ShowsList isLoading={isLoading} search={search} shows={shows} />
         )}
       </div>

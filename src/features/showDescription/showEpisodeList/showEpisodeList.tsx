@@ -82,6 +82,8 @@ const Container = styled.div`
     > .episodes {
       grid-area: tab;
       padding: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
 
       input {
         display: none;
@@ -92,6 +94,7 @@ const Container = styled.div`
         display: inline-block;
         padding: 0.8rem 1rem;
         margin-right: 0.6rem;
+        margin-bottom: 0.6rem;
         font-size: 0.8em;
         cursor: pointer;
         border-radius: 5px;
@@ -118,6 +121,11 @@ const Container = styled.div`
 
       grid-gap: 1.5rem;
       gap: 1.5rem;
+
+      a {
+        text-decoration: none;
+        color: var(--color-white);
+      }
 
       @media (min-width: 768px) {
         grid-template-columns: repeat(4, minmax(0, 1fr));

@@ -10,13 +10,13 @@ interface ShowsCardProps {
 
 const ShowsCard = ({ title, image, showId }: ShowsCardProps): JSX.Element => {
   return (
-    <div>
+    <Container>
       <Link to={`/show/${showId}`}>
         <Inner>
           {image ? (
             <>
-              <ShowsCardImg tw="absolute" src={image} alt={title} />
-              <img className="main" tw="rounded" src={image} alt={title} />
+              <ShowsCardImg src={image} alt={title} />
+              <img className="main" src={image} alt={title} />
             </>
           ) : (
             <Thumbnail>no image thumbnail</Thumbnail>
@@ -24,9 +24,16 @@ const ShowsCard = ({ title, image, showId }: ShowsCardProps): JSX.Element => {
         </Inner>
         <h4>{title}</h4>
       </Link>
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  a {
+    text-decoration: none;
+    color: var(--color-white);
+  }
+`;
 
 const Inner = styled.div`
   position: relative;
