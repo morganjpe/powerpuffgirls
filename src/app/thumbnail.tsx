@@ -3,13 +3,17 @@ import styled from 'styled-components';
 
 const Thumbnail = ({
   children,
+  ratio,
 }: {
   children: React.ReactNode;
+  ratio?: number;
 }): JSX.Element => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [thumbnail, setThumbnail] = useState(
     ref.current ? ref.current.clientWidth : 0
   );
+
+  console.log(ratio);
 
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -22,14 +26,14 @@ const Thumbnail = ({
   }, []);
 
   return (
-    <Thumbail width={thumbnail} ref={ref}>
+    <Thumbail ratio={ratio || 1.4} width={thumbnail} ref={ref}>
       {children}
     </Thumbail>
   );
 };
 
-const Thumbail = styled.div<{ width: number }>`
-  height: calc(${({ width }) => width}px * 1.4);
+const Thumbail = styled.div<{ width: number; ratio: number }>`
+  height: calc(${({ width, ratio }) => width * ratio}px);
   background: var(--color-gray);
   border-radius: 8px;
   display: flex;

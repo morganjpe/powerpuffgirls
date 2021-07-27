@@ -6,9 +6,14 @@ import { ShowList } from '../../../api';
 interface ShowsListProps {
   shows: ShowList | undefined;
   search: string;
+  isLoading: boolean;
 }
 
-const ShowsList = ({ shows, search }: ShowsListProps): JSX.Element => {
+const ShowsList = ({
+  shows,
+  search,
+  isLoading,
+}: ShowsListProps): JSX.Element => {
   if (shows && shows.length) {
     return (
       <ShowsListContainer>
@@ -28,7 +33,7 @@ const ShowsList = ({ shows, search }: ShowsListProps): JSX.Element => {
     );
   }
 
-  if (!shows?.length && search.length) {
+  if (!shows?.length && search.length && !isLoading) {
     return (
       <ShowsListContainer>
         <div>Could not find shows</div>

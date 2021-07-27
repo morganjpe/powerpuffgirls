@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+
 import { useGetShowByIdQuery, useGetEpisodesByIdQuery } from '../../api';
 
 // components
@@ -37,11 +39,30 @@ const EpisodeContainer = ({ showID }: ShowDescriptionProps): JSX.Element => {
 
 const ShowDescription = ({ showID }: ShowDescriptionProps): JSX.Element => {
   return (
-    <div>
-      <DetailContainer showID={showID} />
-      <EpisodeContainer showID={showID} />
-    </div>
+    <ShowDescriptionContainer>
+      <div className="top">
+        <DetailContainer showID={showID} />
+      </div>
+
+      <div className="bottom">
+        <EpisodeContainer showID={showID} />
+      </div>
+    </ShowDescriptionContainer>
   );
 };
+
+const ShowDescriptionContainer = styled.section`
+  display: grid;
+  grid-template: 'top' 1fr 'bottom' 1fr;
+  height: 100vh;
+
+  .top {
+    grid-area: top;
+  }
+
+  .bottom {
+    grid-area: bottom;
+  }
+`;
 
 export default ShowDescription;

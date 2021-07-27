@@ -1,3 +1,9 @@
+import {
+  ShowDetailContainer,
+  ShowDetailInner,
+  ShowDetailContainerBackground,
+} from './showDetail.styles';
+
 interface ShowDetailProps {
   title: string;
   description: string;
@@ -10,11 +16,26 @@ const ShowDetail = ({
   image,
 }: ShowDetailProps): JSX.Element => {
   return (
-    <div>
-      <h2>{title}</h2>
-      <p dangerouslySetInnerHTML={{ __html: description }} />
-      {image ? <img src={image} alt={title} /> : <div>no image thumbnail</div>}
-    </div>
+    <ShowDetailContainer>
+      <ShowDetailInner>
+        <ShowDetailContainerBackground img={image} />
+        <div>
+          <div className="description">
+            <h2>{title}</h2>
+            <div className="content">
+              <p dangerouslySetInnerHTML={{ __html: description }} />
+            </div>
+          </div>
+          <div className="image">
+            {image ? (
+              <img src={image} alt={title} />
+            ) : (
+              <div>no image thumbnail</div>
+            )}
+          </div>
+        </div>
+      </ShowDetailInner>
+    </ShowDetailContainer>
   );
 };
 

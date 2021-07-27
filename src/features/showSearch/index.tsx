@@ -20,14 +20,18 @@ const Shows = (): JSX.Element => {
   return (
     <div>
       <SearchContainer>
-        <Searchbar search={search} handleUserInput={handleUserInput} />
+        <Searchbar
+          isLoading={isLoading}
+          search={search}
+          handleUserInput={handleUserInput}
+        />
       </SearchContainer>
 
       <div>
         {isLoading ? (
           'loading ...'
         ) : (
-          <ShowsList search={search} shows={shows} />
+          <ShowsList isLoading={isLoading} search={search} shows={shows} />
         )}
       </div>
     </div>

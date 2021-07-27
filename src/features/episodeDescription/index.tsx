@@ -28,14 +28,9 @@ interface EpisodeDescriptionProps {
 const EpisodeDescription = ({
   number,
   showId,
-  log,
 }: EpisodeDescriptionProps): JSX.Element => {
   const [current, dispatch] = useReducer(reducer, number);
   const { data, error } = useGetEpisodesByIdQuery(showId);
-
-  if (log) {
-    console.log(current, current !== 0);
-  }
 
   if (data && !error) {
     const { name, summary, image } = data[current];

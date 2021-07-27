@@ -1,3 +1,6 @@
+import styled from 'styled-components';
+import Thumbnail from '../../../app/thumbnail';
+
 interface ShowEpisodeCardProps {
   title: string;
   image: string | null;
@@ -10,15 +13,26 @@ const ShowEpisodeCard = ({
   number,
 }: ShowEpisodeCardProps): JSX.Element => {
   return (
-    <div>
-      {image ? <img src={image} alt={title} /> : <div>no image thumbnail</div>}
+    <ShowEpisodeCardContainer>
+      {image ? (
+        <img src={image} alt={title} />
+      ) : (
+        <Thumbnail ratio={140 / 250}>no image thumbnail</Thumbnail>
+      )}
       <div>
         <h4>
           {title} <span>{number}</span>
         </h4>
       </div>
-    </div>
+    </ShowEpisodeCardContainer>
   );
 };
+
+const ShowEpisodeCardContainer = styled.div`
+  img {
+    width: 100%;
+    border-radius: 5px;
+  }
+`;
 
 export default ShowEpisodeCard;
