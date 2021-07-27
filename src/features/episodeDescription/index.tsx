@@ -33,8 +33,6 @@ const EpisodeDescription = ({
   const [current, dispatch] = useReducer(reducer, number);
   const { data, error } = useGetEpisodesByIdQuery(showId);
 
-  console.log(data);
-
   if (error) {
     return (
       <div>
