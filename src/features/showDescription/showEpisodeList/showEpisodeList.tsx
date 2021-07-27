@@ -44,11 +44,15 @@ const ShowEpisodeList = ({
         </div>
         <ul>
           {intial.map(({ name, image, id }, index) => {
+            const mainIndex = episodes.findIndex((show) => {
+              return show.id === id;
+            });
+
             return (
               <li key={`${id}_${index}`}>
                 <Link
                   to={{
-                    pathname: `/episode/${showId}/${showName}/${index}`,
+                    pathname: `/episode/${showId}/${showName}/${mainIndex}`,
                   }}
                 >
                   <ShowEpisodeCard
