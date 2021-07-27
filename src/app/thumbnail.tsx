@@ -29,13 +29,13 @@ const Thumbnail = ({
   }, []);
 
   return (
-    <Thumbail ratio={ratio || 1.4} width={thumbnail} ref={ref}>
+    <ThumbnailContainer ratio={ratio || 1.4} width={thumbnail} ref={ref}>
       {children}
-    </Thumbail>
+    </ThumbnailContainer>
   );
 };
 
-const Thumbail = styled.div<{ width: number; ratio: number }>`
+const ThumbnailContainer = styled.div<{ width: number; ratio: number }>`
   height: calc(${({ width, ratio }) => width * ratio}px);
   background: var(--color-gray);
   border-radius: 8px;
