@@ -90,18 +90,21 @@ const EpisodeDescriptionContainer = styled.div`
   .top {
     grid-area: top;
   }
-
   .bottom {
     grid-area: bottom;
     display: grid;
+    /* grid-gap: 1rem; */
     grid-template-columns: 20px 1fr 1fr 20px;
 
     @media (min-width: 768px) {
-      grid-template-columns: 1fr minmax(1200px, 1fr) 1fr;
+      grid-template-columns: minmax(20px, 1fr) minmax(auto, 1200px) minmax(
+          20px,
+          1fr
+        );
     }
 
     > div {
-      grid-column: 2/4;
+      grid-column: 2/3;
 
       button {
         padding: 1rem 1.5rem;

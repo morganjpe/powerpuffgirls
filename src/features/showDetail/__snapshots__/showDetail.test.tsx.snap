@@ -2,10 +2,10 @@
 
 exports[`<ShowDetail /> Component should display detail related to the show 1`] = `
 "<article class=\\"sc-bdnxRM fiSZzA\\">
-  <div class=\\"sc-dlnjwi cnlGHY\\">
+  <div class=\\"sc-dlnjwi ixHMrS\\">
     <div class=\\"sc-gtsrHT dztvPj\\"></div>
     <div>
-      <div class=\\"description\\"><span class=\\"breadcrumbs\\"><a href=\\"/\\">Home</a> </span>
+      <div class=\\"description\\"><span class=\\"breadcrumbs\\"><a href=\\"/\\">‹ Back to Search</a> </span>
         <h2>show title</h2>
         <div class=\\"content\\">
           <p>
@@ -21,10 +21,10 @@ exports[`<ShowDetail /> Component should display detail related to the show 1`] 
 
 exports[`<ShowDetail /> Component should not contain any html 1`] = `
 "<article class=\\"sc-bdnxRM fiSZzA\\">
-  <div class=\\"sc-dlnjwi cnlGHY\\">
+  <div class=\\"sc-dlnjwi ixHMrS\\">
     <div class=\\"sc-gtsrHT dztvPj\\"></div>
     <div>
-      <div class=\\"description\\"><span class=\\"breadcrumbs\\"><a href=\\"/\\">Home</a> </span>
+      <div class=\\"description\\"><span class=\\"breadcrumbs\\"><a href=\\"/\\">‹ Back to Search</a> </span>
         <h2>show title</h2>
         <div class=\\"content\\">
           <p>
@@ -40,10 +40,10 @@ exports[`<ShowDetail /> Component should not contain any html 1`] = `
 
 exports[`<ShowDetail /> Component should render a placeholder if no image 1`] = `
 "<article class=\\"sc-bdnxRM fiSZzA\\">
-  <div class=\\"sc-dlnjwi cnlGHY\\">
+  <div class=\\"sc-dlnjwi ixHMrS\\">
     <div class=\\"sc-gtsrHT gUNpAU\\"></div>
     <div>
-      <div class=\\"description\\"><span class=\\"breadcrumbs\\"><a href=\\"/\\">Home</a> </span>
+      <div class=\\"description\\"><span class=\\"breadcrumbs\\"><a href=\\"/\\">‹ Back to Search</a> </span>
         <h2>show title</h2>
         <div class=\\"content\\">
           <p>

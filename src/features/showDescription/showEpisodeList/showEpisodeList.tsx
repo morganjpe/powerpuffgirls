@@ -76,11 +76,9 @@ const Container = styled.div`
 
     @media (min-width: 768px) {
       grid-template:
-        '. tab tab .' auto '. episodes episodes .' auto / 1fr minmax(
-          auto,
-          600px
-        )
-        minmax(auto, 600px) 1fr;
+        '. tab tab .' auto '. episodes episodes .' auto / minmax(20px, 1fr)
+        minmax(auto, 600px)
+        minmax(auto, 600px) minmax(20px, 1fr);
     }
 
     > .episodes {

@@ -27,7 +27,7 @@ const ShowDetail = ({
         <div>
           <div className="description">
             <span className="breadcrumbs">
-              <Link to="/">Home</Link>{' '}
+              <Link to="/">&lsaquo; Back to Search</Link>{' '}
               {location.pathname.includes('episode') && (
                 <span>
                   {' '}

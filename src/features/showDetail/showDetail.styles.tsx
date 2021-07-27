@@ -45,6 +45,11 @@ export const ShowDetailInner = styled.div`
   .description {
     grid-area: bottom;
 
+    .breadcrumbs {
+      display: block;
+      padding-top: 2rem;
+    }
+
     a {
       color: white;
       text-decoration: none;
