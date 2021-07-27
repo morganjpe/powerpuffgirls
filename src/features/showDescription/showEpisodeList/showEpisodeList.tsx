@@ -48,7 +48,7 @@ const ShowEpisodeList = ({
               <li key={`${id}_${index}`}>
                 <Link
                   to={{
-                    pathname: `/episode/${showId}/${showName}`,
+                    pathname: `/episode/${showId}/${showName}/${index}`,
                   }}
                 >
                   <ShowEpisodeCard

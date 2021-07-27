@@ -24,7 +24,7 @@ function App(): JSX.Element {
             <Route path="/show/:showid">
               <ShowDescriptionPage />
             </Route>
-            <Route path="/episode/:showid/:showname">
+            <Route path="/episode/:showid/:showname/:shownumber">
               <EpisodeDescriptionPage />
             </Route>
           </Switch>
