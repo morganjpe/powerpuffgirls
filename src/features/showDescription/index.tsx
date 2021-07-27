@@ -49,6 +49,10 @@ const ShowDescription = ({ showID }: ShowDescriptionProps): JSX.Element => {
     );
   }
 
+  if (!data) {
+    return <div />;
+  }
+
   return (
     <ShowDescriptionContainer>
       <div className="top">
