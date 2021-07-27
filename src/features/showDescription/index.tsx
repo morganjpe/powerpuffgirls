@@ -41,7 +41,7 @@ const EpisodeContainer = ({
 const ShowDescription = ({ showID }: ShowDescriptionProps): JSX.Element => {
   const { data, error } = useGetShowByIdQuery(showID);
 
-  if (error || !data) {
+  if (error) {
     return (
       <div>
         There has been an error. Please search again? <Link to="/">Home</Link>
