@@ -2,6 +2,8 @@
 
 <img src="https://github.com/morganjpe/powerpuffgirls/blob/main/screenshot.png?raw=true">
 
+[DEMO](https://fervent-euler-7ca338.netlify.app/)
+
 ## Created using -
 
 - TypeScript
@@ -10,6 +12,7 @@
 - Redux (RTK Query)
 - Jest/React Testing Library
 - Mock Service Worker (MSW)
+- React Router
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
