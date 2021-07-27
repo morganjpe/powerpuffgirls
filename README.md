@@ -1,5 +1,7 @@
 # SCREWFLIX
 
+<img src="https://github.com/morganjpe/powerpuffgirls/blob/main/screenshot.png?raw=true">
+
 ## Created using -
 
 - TypeScript
