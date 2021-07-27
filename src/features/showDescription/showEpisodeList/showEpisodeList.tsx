@@ -1,5 +1,6 @@
 /* eslint jsx-a11y/label-has-for: 0 */
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { useState } from 'react';
 import { EpisodeList } from '../../../api';
@@ -7,11 +8,16 @@ import { ShowEpisodeCard } from '../showEpisodeCard';
 
 interface ShowEpisodeList {
   episodes: EpisodeList;
+  showId: string | number;
+  showName: string;
 }
 
-const ShowEpisodeList = ({ episodes }: ShowEpisodeList): JSX.Element => {
+const ShowEpisodeList = ({
+  episodes,
+  showId,
+  showName,
+}: ShowEpisodeList): JSX.Element => {
   const [seasonState, setSeasonState] = useState(1);
-
   const seasons = episodes.reduce((prev, { season }) => {
     return prev > season ? prev : season;
   }, 1);
@@ -40,11 +46,13 @@ const ShowEpisodeList = ({ episodes }: ShowEpisodeList): JSX.Element => {
           {intial.map(({ name, image, id }, index) => {
             return (
               <li key={id}>
-                <ShowEpisodeCard
-                  image={image?.medium ? image.medium : null}
-                  title={name}
-                  number={index + 1}
-                />
+                <Link to={`/episode/${showId}`}>
+                  <ShowEpisodeCard
+                    image={image?.medium ? image.medium : null}
+                    title={name}
+                    number={index + 1}
+                  />
+                </Link>
               </li>
             );
           })}

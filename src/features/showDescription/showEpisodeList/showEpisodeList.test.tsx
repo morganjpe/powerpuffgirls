@@ -1,6 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import ShowEpisodeList from './showEpisodeList';
 
@@ -67,7 +68,15 @@ describe('<ShowEpisodeList />', () => {
   let container: HTMLElement;
 
   beforeEach(() => {
-    const component = render(<ShowEpisodeList episodes={testEpisodes} />);
+    const component = render(
+      <Router>
+        <ShowEpisodeList
+          showId={9999}
+          showName="powerpuff"
+          episodes={testEpisodes}
+        />
+      </Router>
+    );
     container = component.container;
   });
 

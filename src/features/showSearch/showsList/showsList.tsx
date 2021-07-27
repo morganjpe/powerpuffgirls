@@ -22,6 +22,7 @@ const ShowsList = ({
             {shows.map(({ show: { name, image, id } }) => (
               <li key={id}>
                 <ShowsCard
+                  showId={id}
                   title={name}
                   image={image?.medium ? image.medium : null}
                 />

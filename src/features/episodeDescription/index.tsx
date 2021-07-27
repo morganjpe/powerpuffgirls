@@ -1,6 +1,7 @@
 import { useReducer } from 'react';
 import styled from 'styled-components';
 import { useGetEpisodesByIdQuery } from '../../api';
+import { Link } from 'react-router-dom';
 
 // components
 import { ShowDetail } from '../showDetail';
@@ -31,6 +32,14 @@ const EpisodeDescription = ({
 }: EpisodeDescriptionProps): JSX.Element => {
   const [current, dispatch] = useReducer(reducer, number);
   const { data, error } = useGetEpisodesByIdQuery(showId);
+
+  if (error) {
+    return (
+      <div>
+        There has been an error. Please search again? <Link to="/">Home</Link>
+      </div>
+    );
+  }
 
   if (data && !error) {
     const { name, summary, image } = data[current];

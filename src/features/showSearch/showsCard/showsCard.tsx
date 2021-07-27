@@ -1,24 +1,29 @@
+import { Link } from 'react-router-dom';
+
 import styled from 'styled-components';
 import Thumbnail from '../../../app/thumbnail';
 interface ShowsCardProps {
   title: string;
   image: string | null;
+  showId: number;
 }
 
-const ShowsCard = ({ title, image }: ShowsCardProps): JSX.Element => {
+const ShowsCard = ({ title, image, showId }: ShowsCardProps): JSX.Element => {
   return (
     <div>
-      <Inner>
-        {image ? (
-          <>
-            <ShowsCardImg tw="absolute" src={image} alt={title} />
-            <img className="main" tw="rounded" src={image} alt={title} />
-          </>
-        ) : (
-          <Thumbnail>no image thumbnail</Thumbnail>
-        )}
-      </Inner>
-      <h4>{title}</h4>
+      <Link to={`/show/${showId}`}>
+        <Inner>
+          {image ? (
+            <>
+              <ShowsCardImg tw="absolute" src={image} alt={title} />
+              <img className="main" tw="rounded" src={image} alt={title} />
+            </>
+          ) : (
+            <Thumbnail>no image thumbnail</Thumbnail>
+          )}
+        </Inner>
+        <h4>{title}</h4>
+      </Link>
     </div>
   );
 };

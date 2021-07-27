@@ -1,6 +1,7 @@
 import { Provider } from 'react-redux';
 import store from '../../app/store';
 import { render, screen, waitFor } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 // mockdata
 import { episodes } from '../../mocks/data';
@@ -12,9 +13,11 @@ import userEvent from '@testing-library/user-event';
 describe('<EpisodeDescription /> Component', () => {
   it('should be able to navigate between episode pages', async () => {
     render(
-      <Provider store={store}>
-        <EpisodeDescription number={0} showId={6771} />
-      </Provider>
+      <Router>
+        <Provider store={store}>
+          <EpisodeDescription number={0} showId={6771} />
+        </Provider>
+      </Router>
     );
     await waitFor(() => {
       // no initial previous button

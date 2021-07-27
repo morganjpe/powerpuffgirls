@@ -1,3 +1,5 @@
+import { Link, useParams, useLocation } from 'react-router-dom';
+
 import {
   ShowDetailContainer,
   ShowDetailInner,
@@ -15,12 +17,24 @@ const ShowDetail = ({
   description,
   image,
 }: ShowDetailProps): JSX.Element => {
+  const location = useLocation();
+  const params = useParams<{ showid: string }>();
+
   return (
     <ShowDetailContainer>
       <ShowDetailInner>
         <ShowDetailContainerBackground img={image} />
         <div>
           <div className="description">
+            <span className="breadcrumbs">
+              <Link to="/">Home</Link>{' '}
+              {location.pathname.includes('episode') && (
+                <span>
+                  {' '}
+                  / <Link to={`/show/${params.showid}`}>Show</Link>
+                </span>
+              )}
+            </span>
             <h2>{title}</h2>
             <div className="content">
               <p dangerouslySetInnerHTML={{ __html: description }} />

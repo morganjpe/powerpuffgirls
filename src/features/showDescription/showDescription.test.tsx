@@ -4,13 +4,16 @@ import { render, screen, waitFor } from '@testing-library/react';
 
 import ShowDescription from './index';
 import userEvent from '@testing-library/user-event';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('<ShowDescription /> Component', () => {
   beforeEach(() =>
     render(
-      <Provider store={store}>
-        <ShowDescription showID={6771} />
-      </Provider>
+      <Router>
+        <Provider store={store}>
+          <ShowDescription showID={6771} />
+        </Provider>
+      </Router>
     )
   );
 

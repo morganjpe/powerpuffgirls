@@ -45,6 +45,14 @@ export const ShowDetailInner = styled.div`
   .description {
     grid-area: bottom;
 
+    a {
+      color: white;
+      text-decoration: none;
+      :hover {
+        text-decoration: underline;
+      }
+    }
+
     @media (min-width: 768px) {
       grid-area: unset;
       grid-column: 2/3;
