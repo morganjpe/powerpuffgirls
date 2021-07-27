@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { EpisodeList } from '../../../api';
 import { ShowEpisodeCard } from '../showEpisodeCard';
 
-interface ShowEpisodeList {
+interface ShowEpisodeListProps {
   episodes: EpisodeList;
   showId: string | number;
   showName: string;
@@ -16,7 +16,7 @@ const ShowEpisodeList = ({
   episodes,
   showId,
   showName,
-}: ShowEpisodeList): JSX.Element => {
+}: ShowEpisodeListProps): JSX.Element => {
   const [seasonState, setSeasonState] = useState(1);
   const seasons = episodes.reduce((prev, { season }) => {
     return prev > season ? prev : season;
