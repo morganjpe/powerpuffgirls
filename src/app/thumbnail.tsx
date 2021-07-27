@@ -13,12 +13,15 @@ const Thumbnail = ({
     ref.current ? ref.current.clientWidth : 0
   );
 
-  console.log(ratio);
-
   useEffect(() => {
-    window.addEventListener('resize', () => {
+    const listener = () =>
       setThumbnail(ref.current ? ref.current.clientWidth : 0);
-    });
+
+    window.addEventListener('resize', listener);
+
+    return () => {
+      window.removeEventListener('resize', listener);
+    };
   }, []);
 
   useLayoutEffect(() => {

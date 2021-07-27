@@ -18,7 +18,7 @@ const ShowDetail = ({
   image,
 }: ShowDetailProps): JSX.Element => {
   const location = useLocation();
-  const params = useParams<{ showid: string }>();
+  const params = useParams<{ showid: string; showname: string }>();
 
   return (
     <ShowDetailContainer>
@@ -31,7 +31,7 @@ const ShowDetail = ({
               {location.pathname.includes('episode') && (
                 <span>
                   {' '}
-                  / <Link to={`/show/${params.showid}`}>Show</Link>
+                  / <Link to={`/show/${params.showid}`}>{params.showname}</Link>
                 </span>
               )}
             </span>

@@ -46,7 +46,11 @@ const ShowEpisodeList = ({
           {intial.map(({ name, image, id }, index) => {
             return (
               <li key={`${id}_${index}`}>
-                <Link to={`/episode/${showId}`}>
+                <Link
+                  to={{
+                    pathname: `/episode/${showId}/${showName}`,
+                  }}
+                >
                   <ShowEpisodeCard
                     image={image?.medium ? image.medium : null}
                     title={name}
